@@ -1,0 +1,16 @@
+[build]
+  publish = "/"
+  command = "echo 'Building static site...'"
+
+[[redirects]]
+  from = "/old-page"
+  to = "/new-page"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
