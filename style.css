@@ -1,40 +1,351 @@
-body {
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --color-background-deep-blue-1: #0a192f;
+  --color-background-deep-blue-2: #1e3a8a;
+  --color-background-deep-blue-3: #2d5aa8;
+  --color-glass-card-bg: rgba(10, 25, 47, 0.85);
+  --color-accent-primary: #f9a86d; /* Warm orange */
+  --color-accent-secondary: #63b3ed; /* Sky blue */
+  --color-text-primary: #e2e8f0; /* Off-white */
+  --color-text-secondary: #9CA3AF; /* Muted gray */
+  --color-border-subtle: rgba(255, 255, 255, 0.15);
+  --border-radius-xl: 1.5rem; /* rounded-2xl */
+  --border-radius-lg: 0.5rem; /* rounded-lg */
+}
+
+html, body {
   margin: 0;
-  width: 100vw;
-  height: 100vh;
-  font-family: "Syne Mono", monospace;
-  background-color: #7236ff;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-text-primary);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  background: linear-gradient(135deg, var(--color-background-deep-blue-1), var(--color-background-deep-blue-2), var(--color-background-deep-blue-3));
+  background-size: 400% 400%;
+  animation: oceanicGlow 15s ease infinite;
 }
 
-.container {
-  width: 750px;
-  max-width: 75%;
+@keyframes oceanicGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  box-sizing: border-box; /* Include padding in width calculation */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-accent-primary);
   text-align: center;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px 1px;
-  padding: 20px;
+  margin: 0;
 }
 
-.button {
-  background-color: #4400ff;
-  color: #ffffff;
-  border-radius: 4px;
-  padding: 10px 40px;
-  margin: 15px 0px;
+.navigation {
+  background: var(--color-glass-card-bg);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-xl);
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent-primary);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--color-accent-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Main Content Area */
+.content-area {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Card Styles (Glasmorphism) */
+.card {
+  background: var(--color-glass-card-bg);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-xl);
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card:hover {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 25px rgba(239, 134, 76, 0.3), 0 4px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-title {
   font-size: 1.75rem;
-  border: 5px solid #4400ff;
+  font-weight: 600;
+  color: var(--color-accent-primary);
+  margin-top: 0;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+/* Button Styles */
+.button {
+  background-color: var(--color-accent-primary);
+  color: var(--color-background-deep-blue-1); /* Dark blue text on button */
+  border: none;
+  border-radius: var(--border-radius-lg);
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(249, 168, 109, 0.3);
 }
 
 .button:hover {
-  border: 5px solid black;
-  cursor: pointer;
+  background-color: var(--color-accent-secondary); /* Change on hover */
+  color: var(--color-background-deep-blue-1);
+  box-shadow: 0 0 20px rgba(99, 179, 237, 0.5);
+  transform: translateY(-2px);
 }
 
 .button:active {
-  border: 5px solid #ffd300;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Feature Card Specific Styles */
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.feature-item {
+  background: rgba(10, 25, 47, 0.7); /* Slightly darker glass for nested items */
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item:hover {
+  border-color: var(--color-accent-secondary);
+  box-shadow: 0 0 15px rgba(99, 179, 237, 0.3);
+  transform: translateY(-3px);
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-accent-secondary);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+/* Timeline Card Specific Styles */
+.timeline {
+  display: flex;
+  flex-direction: column; /* Always vertical */
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 2rem; /* Space for the vertical line and dots */
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem; /* Start line slightly below the top of the first item */
+  left: 1.25rem; /* Position of the vertical line */
+  bottom: 0.5rem; /* End line slightly above the bottom of the last item */
+  width: 2px; /* Thickness of the line */
+  background-color: var(--color-border-subtle);
+  z-index: 0;
+}
+
+.timeline-item {
+  background: rgba(10, 25, 47, 0.7);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1; /* Above the line */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 1rem; /* Offset for content to align with line */
+}
+
+.timeline-item:hover {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 15px rgba(239, 134, 76, 0.3);
+  transform: translateX(5px); /* Animate horizontally for vertical timeline */
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1rem; /* Position to the left of the timeline-item content */
+  top: 1.5rem; /* Vertically center with the timeline-item */
+  transform: translateX(0); /* No horizontal transform needed */
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent; /* Default to transparent */
+  border-radius: 50%;
+  border: 3px solid var(--color-border-subtle); /* Default border color for outline */
+  z-index: 2;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+/* Styles for active timeline item */
+.timeline-item.active .timeline-dot {
+  background-color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+}
+
+.timeline-item.active .timeline-title {
+  color: var(--color-accent-primary);
+}
+
+/* Styles for completed timeline item */
+/* No special styling for completed dots, they will inherit the default .timeline-dot style (outlined) */
+.timeline-item.completed .timeline-title {
+  color: var(--color-text-secondary); /* Keep text muted for completed phases */
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  background: var(--color-glass-card-bg);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-xl);
+  margin-top: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .navigation {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .content-area {
+    grid-template-columns: 1fr;
+  }
 }

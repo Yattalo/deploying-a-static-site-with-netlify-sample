@@ -5,15 +5,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="script.js" defer></script>
   <title>Your Website</title>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Welcome to your website!</h1>
-    <button id="clap-button" class="button">👏</button>
+  <div class="main-container">
+    <header class="header">
+      <h1 class="main-title">Oceanic Glow Project</h1>
+      <nav class="navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+       
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-area">
+      <section class="card intro-card">
+        <h2 class="card-title">Welcome to the Deep Sea!</h2>
+        <p class="card-text">Explore the depths of our project, meticulously designed with an 'Oceanic Glow' aesthetic. Every element is crafted to provide a serene and immersive experience.</p>
+        <button id="clap-button" class="button accent-button">👏 Dive In!</button>
+      </section>
+
+      <section class="card feature-card">
+        <h2 class="card-title">Key Features</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3 class="feature-title">Glassmorphism UI</h3>
+            <p class="feature-description">Experience the smooth, frosted glass effect on all interactive panels.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Animated Backgrounds</h3>
+            <p class="feature-description">Enjoy subtle, flowing gradients that mimic ocean currents.</p>
+          </div>
+          <div class="feature-item">
+            <h3 class="feature-title">Intuitive Navigation</h3>
+            <p class="feature-description">Navigate effortlessly through a clean and organized layout.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card timeline-card">
+        <h2 class="card-title">Project Milestones</h2>
+        <div class="timeline">
+          <div class="timeline-item active">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">Phase 1: Concept</h3>
+            <p class="timeline-description">Initial ideation and style definition.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">Phase 2: Design</h3>
+            <p class="timeline-description">UI/UX wireframing and prototyping.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">Phase 3: Development</h3>
+            <p class="timeline-description">Implementation of core features.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">Phase 4: Deployment</h3>
+            <p class="timeline-description">Launching the site to the world.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-text">&copy; 2025 Oceanic Glow Project. All rights reserved.</p>
+    </footer>
   </div>
 </body>
 
